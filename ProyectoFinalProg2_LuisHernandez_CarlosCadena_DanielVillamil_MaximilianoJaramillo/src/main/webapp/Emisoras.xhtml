@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Formulario de Emisora</title>
+	<style>
+body {
+	font-family: Arial, sans-serif;
+	background-image:
+		url(https://img.freepik.com/vector-gratis/fondo-pentagrama-musical-brillante-notas-sonido_1017-31220.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	margin: 0;
+	padding: 0;
+}
+
+.form-container {
+	width: 400px;
+	margin: 50px auto;
+	padding: 20px;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.5);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.form-container h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.form-table {
+	width: 100%;
+}
+
+.custom-button {
+	width: 100%;
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	background-color: black;
+	color: #c1b575;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	margin-top: 20px;
+}
+
+.custom-button:hover {
+	background-color: #333;
+}
+</style>
+</h:head>
+
+<!-- formulario.xhtml -->
+
+<h:body>
+	<div class="form-container">
+		<h2>Formulario de Emisora</h2>
+		<h:form id="emisoraForm" prependId="false">
+			<table class="form-table">
+				<tr>
+					<td><h:outputLabel for="nombre" value="Nombre de la Emisora:" /></td>
+					<td><p:inputText id="nombre" value="#{emisoraBean.nombre}"
+							placeholder="Nombre de la Emisora" required="true" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="tipoEmisora" value="Tipo de Emisora:" /></td>
+					<td><p:selectOneRadio id="tipoEmisora"
+							value="#{emisoraBean.tipoEmisora}" layout="lineDirection">
+							<f:selectItem itemLabel="AM" itemValue="AM" />
+							<f:selectItem itemLabel="FM" itemValue="FM" />
+							<f:selectItem itemLabel="Streaming" itemValue="Streaming" />
+						</p:selectOneRadio></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="tipoMusica" value="Tipo de Música:" /></td>
+					<td><p:selectOneMenu id="tipoMusica"
+							value="#{emisoraBean.tipoMusica}" required="true">
+							<f:selectItem itemLabel="Seleccionar Tipo de Música" itemValue="" />
+							<f:selectItem itemLabel="Rock" itemValue="Rock" />
+							<f:selectItem itemLabel="Pop" itemValue="Pop" />
+							<f:selectItem itemLabel="Jazz" itemValue="Jazz" />
+							<f:selectItem itemLabel="Electrónica" itemValue="Electrónica" />
+							<f:selectItem itemLabel="Clásica" itemValue="Clásica" />
+						</p:selectOneMenu></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><p:commandButton value="Enviar"
+							action="#{emisoraBean.agregarEmisora}" styleClass="custom-button"
+							update="emisoraForm" /></td>
+				</tr>
+			</table>
+			<p:messages />
+		</h:form>
+	</div>
+</h:body>
+</html>
