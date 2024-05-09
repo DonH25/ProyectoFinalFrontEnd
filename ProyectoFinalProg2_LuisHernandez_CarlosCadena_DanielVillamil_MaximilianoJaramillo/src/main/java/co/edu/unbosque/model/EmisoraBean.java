@@ -16,7 +16,6 @@ public class EmisoraBean implements Serializable {
 	private String tipoMusica;
 
 	public EmisoraBean() {
-		// Constructor vacío
 	}
 
 	public String agregarEmisora() {
@@ -27,28 +26,26 @@ public class EmisoraBean implements Serializable {
 
 		int respuesta = 0;
 		try {
-			respuesta = TestJSON.postJSON(emisora);
+			respuesta = EmisorasJSON.postJSON(emisora);
 			if (respuesta == 200) {
-				return "registroAgregado"; // Nombre de la página de éxito
+				return "canciones?faces-redirect=true";
 			} else {
-				return "error"; // Nombre de la página de error
+				return "error";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "error"; // En caso de excepción, mostrar página de error
+			return "error";
 		}
 	}
 
 	public ArrayList<Emisoras> listarEmisoras() {
 		try {
-			return TestJSON.getJSON();
+			return EmisorasJSON.getJSON();
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new ArrayList<>(); // Devolver lista vacía en caso de error
+			return new ArrayList<>();
 		}
 	}
-
-	// Getters y setters para los atributos
 
 	public String getNombre() {
 		return nombre;

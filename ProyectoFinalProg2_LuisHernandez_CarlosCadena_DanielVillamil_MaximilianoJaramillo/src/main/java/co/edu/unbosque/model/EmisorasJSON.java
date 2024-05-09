@@ -17,13 +17,13 @@ import org.json.simple.parser.ParseException;
 
 import co.edu.unbosque.model.Emisoras;
 
-public class TestJSON {
+public class EmisorasJSON {
 
 	private static URL url;
 	private static String sitio = "http://localhost:8088/";
 
 	public static ArrayList<Emisoras> getJSON() throws IOException, ParseException {
-		url = new URL(sitio + "usuarios/listar");
+		url = new URL(sitio + "emisoras/listar");
 		HttpURLConnection http = (HttpURLConnection) url.openConnection();
 		http.setRequestMethod("GET");
 		http.setRequestProperty("Accept", "application/json");
