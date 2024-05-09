@@ -1,21 +1,12 @@
 package co.edu.unbosque.model;
 
 public class Canciones {
-	private Integer id;
 	private String nombre_Canciones;
 	private String genero_Musica;
-	private byte[] archivo_MP3; // Cambio de String a byte[] para almacenar el archivo MP3
+	private String url_Cancion;
 
 	public String getNombre_Canciones() {
 		return nombre_Canciones;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public void setNombre_Canciones(String nombre_Canciones) {
@@ -30,11 +21,12 @@ public class Canciones {
 		this.genero_Musica = genero_Musica;
 	}
 
-	public byte[] getArchivo_MP3() {
-		return archivo_MP3;
+	public String getURL_Cancion() {
+		return url_Cancion;
 	}
 
-	public void setArchivo_MP3(byte[] archivo_MP3) {
-		this.archivo_MP3 = archivo_MP3;
+	public void setURL_Cancion(String url_Cancion) {
+		this.url_Cancion = url_Cancion;
 	}
+
 }

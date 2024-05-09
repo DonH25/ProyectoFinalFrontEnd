@@ -11,18 +11,18 @@ import javax.faces.bean.RequestScoped;
 public class EmisoraBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String nombre;
-	private String tipoEmisora;
-	private String tipoMusica;
+	private String nombre_Emisora;
+	private String tipo_Musica;
+	private String tipo_Emisora;
 
 	public EmisoraBean() {
 	}
 
 	public String agregarEmisora() {
 		Emisoras emisora = new Emisoras();
-		emisora.setNombre_Emisora(this.nombre);
-		emisora.setTipo_Emisora(this.tipoEmisora);
-		emisora.setTipo_Musica(this.tipoMusica);
+		emisora.setNombre_Emisora(this.nombre_Emisora);
+		emisora.setTipo_Emisora(this.tipo_Emisora);
+		emisora.setTipo_Musica(this.tipo_Musica);
 
 		int respuesta = 0;
 		try {
@@ -48,26 +48,26 @@ public class EmisoraBean implements Serializable {
 	}
 
 	public String getNombre() {
-		return nombre;
+		return nombre_Emisora;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNombre(String nombre_Emisora) {
+		this.nombre_Emisora = nombre_Emisora;
 	}
 
 	public String getTipoEmisora() {
-		return tipoEmisora;
+		return tipo_Emisora;
 	}
 
-	public void setTipoEmisora(String tipoEmisora) {
-		this.tipoEmisora = tipoEmisora;
+	public void setTipoEmisora(String tipo_Emisora) {
+		this.tipo_Emisora = tipo_Emisora;
 	}
 
 	public String getTipoMusica() {
-		return tipoMusica;
+		return tipo_Musica;
 	}
 
-	public void setTipoMusica(String tipoMusica) {
-		this.tipoMusica = tipoMusica;
+	public void setTipoMusica(String tipo_Musica) {
+		this.tipo_Musica = tipo_Musica;
 	}
 }

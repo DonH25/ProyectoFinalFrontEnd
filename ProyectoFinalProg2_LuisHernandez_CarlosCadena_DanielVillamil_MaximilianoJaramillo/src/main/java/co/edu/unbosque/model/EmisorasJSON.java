@@ -15,8 +15,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import co.edu.unbosque.model.Emisoras;
-
 public class EmisorasJSON {
 
 	private static URL url;
