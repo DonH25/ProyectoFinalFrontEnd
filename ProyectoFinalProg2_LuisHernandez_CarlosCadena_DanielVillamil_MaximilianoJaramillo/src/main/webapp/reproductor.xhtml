@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Reproductor de Audio</title>
+	<style>
+body {
+	font-family: Arial, sans-serif;
+	background-image:
+		url(https://img.freepik.com/vector-gratis/fondo-pentagrama-musical-brillante-notas-sonido_1017-31220.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	margin: 0;
+	padding: 0;
+}
+
+.card {
+	width: 300px;
+	margin: 20px auto;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.5);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+h5 {
+	margin-top: 0;
+}
+
+audio {
+	width: 100%;
+	margin-top: 10px;
+}
+
+a {
+	color: #c1b575;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+</style>
+</h:head>
+<h:body>
+	<div class="card">
+		<h5>Reproductor de Audio</h5>
+		<input type="text" id="audioUrl" placeholder="Inserta el enlace MP3" />
+		<button onclick="actualizarAudio()">Reproducir</button>
+		<br /> <br />
+		<audio id="reproductorAudio" controls="controls"> <source
+			src="" type="audio/mp3" /> Tu navegador no soporta el elemento de
+		audio. Por favor, usa un navegador actualizado. </audio>
+	</div>
+
+	<script>
+		function actualizarAudio() {
+			const audioUrl = document.getElementById('audioUrl').value;
+			const audioPlayer = document.getElementById('reproductorAudio');
+
+			// Verificar si se proporcionó una URL válida
+			if (audioUrl.trim() !== '') {
+				// Actualizar la fuente del audio
+				audioPlayer.src = audioUrl;
+				// Cargar y reproducir el nuevo audio
+				audioPlayer.load();
+				audioPlayer.play();
+			} else {
+				// Si no se proporciona una URL válida, detener la reproducción
+				audioPlayer.pause();
+			}
+		}
+	</script>
+</h:body>
+</html>

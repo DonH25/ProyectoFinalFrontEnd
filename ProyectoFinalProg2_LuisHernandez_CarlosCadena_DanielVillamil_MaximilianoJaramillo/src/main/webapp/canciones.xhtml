@@ -5,86 +5,79 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Reproductor de Audio</title>
+	<title>Canción</title>
 	<style>
-		body {
-			font-family: Arial, sans-serif;
-			background-image: url(https://img.freepik.com/vector-gratis/fondo-pentagrama-musical-brillante-notas-sonido_1017-31220.jpg);
-			background-repeat: no-repeat;
-			background-size: cover;
-			color: white;
-			margin: 0;
-			padding: 0;
-		}
+body {
+	font-family: Arial, sans-serif;
+	background-image:
+		url(https://img.freepik.com/vector-gratis/fondo-pentagrama-musical-brillante-notas-sonido_1017-31220.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	margin: 0;
+	padding: 0;
+}
 
-		.form-container {
-			width: 400px;
-			margin: 50px auto;
-			padding: 20px;
-			border-radius: 5px;
-			background-color: rgba(0, 0, 0, 0.5);
-			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-		}
+.form-container {
+	width: 400px;
+	margin: 50px auto;
+	padding: 20px;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.5);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
 
-		.form-container h2 {
-			text-align: center;
-			margin-bottom: 20px;
-		}
+.form-container h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
 
-		.custom-button {
-			width: 100%;
-			padding: 10px;
-			border: none;
-			border-radius: 4px;
-			background-color: black;
-			color: #c1b575;
-			cursor: pointer;
-			transition: background-color 0.3s;
-			margin-top: 20px;
-		}
+.custom-button {
+	width: 100%;
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	background-color: black;
+	color: #c1b575;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	margin-top: 20px;
+}
 
-		.custom-button:hover {
-			background-color: #333;
-		}
+.custom-button:hover {
+	background-color: #333;
+}
 
-		.card {
-			margin-top: 20px;
-		}
+.card {
+	margin-top: 20px;
+}
 
-		.card h5 {
-			margin-bottom: 10px;
-		}
-	</style>
+.card h5 {
+	margin-bottom: 10px;
+}
+</style>
 </h:head>
 
 <h:body>
 	<div class="form-container">
-		<h2>Reproductor de Audio</h2>
+		<h2>Canciones</h2>
 		<h:form id="audioForm">
-			<h:outputText value="Por favor inserta la URL del audio:" />
-			<h:inputText id="urlInput" value="#{bean.url}" />
-			<h:commandButton value="Reproducir" styleClass="custom-button" onclick="playAudio()" />
+			<h:panelGrid columns="2" columnClasses="label, value">
+				<h:outputLabel for="nombre" value="Nombre de la canción:" />
+				<p:inputText id="nombre" value="#{cancionBean.nombre_Canciones}" />
+
+				<h:outputLabel for="genero" value="Género de la música:" />
+				<p:inputText id="genero" value="#{cancionBean.genero_Musica}" />
+
+				<h:outputLabel for="url" value="URL del audio:" />
+				<p:inputText id="url" value="#{cancionBean.url_Cancion}" />
+			</h:panelGrid>
+
+			<p:commandButton value="Agregar Canción"
+				action="#{cancionBean.agregarCancion}" styleClass="custom-button"
+				onstart="return validateInput();" update="@form" />
 		</h:form>
 	</div>
-
-	<div class="card" id="audioPlayer" style="display: none;">
-		<h5>Audio Reproducido</h5>
-		<p:media id="audioPlayerElement" value="#{bean.url_Cancion}" player="flash" />
-	</div>
-
-	<script>
-		function playAudio() {
-			var urlInput = document.getElementById('urlInput').value;
-			var audioPlayer = document.getElementById('audioPlayer');
-
-			if (urlInput.trim() !== '') {
-				audioPlayer.style.display = 'block';
-			} else {
-				alert('Por favor ingresa una URL válida.');
-			}
-		}
-	</script>
 </h:body>
 
 </html>
-
