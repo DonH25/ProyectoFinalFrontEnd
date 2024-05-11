@@ -1,7 +1,5 @@
 package co.edu.unbosque.model;
 
-
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -24,7 +22,7 @@ public class CancionBean implements Serializable {
 		Canciones canciones = new Canciones();
 		canciones.setNombre_Canciones(this.nombre_Canciones);
 		canciones.setGenero_Musica(this.genero_Musica);
-		canciones.setURL_Cancion(this.url_Cancion);
+		canciones.setUrl_Cancion(this.url_Cancion);
 
 		int respuesta = 0;
 		try {
@@ -73,6 +71,4 @@ public class CancionBean implements Serializable {
 		this.url_Cancion = url_Cancion;
 	}
 
-	
-	
 }

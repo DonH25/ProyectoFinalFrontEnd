@@ -21,11 +21,11 @@ public class Canciones {
 		this.genero_Musica = genero_Musica;
 	}
 
-	public String getURL_Cancion() {
+	public String getUrl_Cancion() {
 		return url_Cancion;
 	}
 
-	public void setURL_Cancion(String url_Cancion) {
+	public void setUrl_Cancion(String url_Cancion) {
 		this.url_Cancion = url_Cancion;
 	}
 

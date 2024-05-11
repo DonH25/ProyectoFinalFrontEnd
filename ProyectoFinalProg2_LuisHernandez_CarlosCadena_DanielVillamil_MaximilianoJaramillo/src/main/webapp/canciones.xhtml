@@ -77,6 +77,12 @@ body {
 				action="#{cancionBean.agregarCancion}" styleClass="custom-button"
 				onstart="return validateInput();" update="@form" />
 		</h:form>
+
+		<!-- Botón para regresar a reproductor.xhtml -->
+		<div style="text-align: center; margin-top: 20px;">
+			<p:button value="Regresar al Reproductor" outcome="reproductor.xhtml"
+				styleClass="custom-button" />
+		</div>
 	</div>
 </h:body>
 
