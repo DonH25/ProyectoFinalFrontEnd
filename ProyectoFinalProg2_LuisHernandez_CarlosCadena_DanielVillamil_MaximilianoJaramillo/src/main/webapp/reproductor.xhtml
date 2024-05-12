@@ -71,6 +71,61 @@ a {
 a:hover {
 	text-decoration: underline;
 }
+
+.left-column {
+	flex: 1;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.7);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	overflow-y: auto;
+	/* Scroll vertical si el contenido excede el tamaño */
+	max-height: 400px; /* Altura máxima del recuadro */
+}
+
+/* Estilos para el listado de canciones dentro del recuadro */
+ul#cancionesList {
+	list-style: none; /* Quitar viñetas de la lista */
+	padding: 0;
+}
+
+ul#cancionesList li {
+	margin-bottom: 10px;
+}
+
+ul#cancionesList li a {
+	color: #c1b575;
+	text-decoration: none;
+	display: block;
+	padding: 8px 0;
+	border-bottom: 1px solid #555;
+	/* Separador entre elementos de la lista */
+}
+
+ul#cancionesList li a:hover {
+	text-decoration: underline;
+}
+
+/* Ajustes adicionales */
+.container {
+	display: flex;
+	width: 80%;
+	margin-top: 20px;
+	justify-content: center; /* Centrar la estructura completa */
+}
+
+.right-column {
+	flex: 1;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.7);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	color: white;
+}
 </style>
 </h:head>
 <h:body>
@@ -80,9 +135,10 @@ a:hover {
 			<ul id="cancionesList">
 				<ui:repeat value="#{cancionBean.listarCanciones()}" var="cancion">
 					<li><a href="#"
-						onclick="seleccionarCancion('#{cancion.url_Cancion}')">#{cancion.nombre_Canciones}</a>
-					</li>
+						onclick="seleccionarCancion('#{cancion.url_Cancion}')">
+							#{cancion.nombre_Canciones} - #{cancion.artista_Canciones} </a></li>
 				</ui:repeat>
+
 			</ul>
 		</div>
 		<div class="right-column">

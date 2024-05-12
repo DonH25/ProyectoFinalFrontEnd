@@ -14,6 +14,7 @@ public class CancionBean implements Serializable {
 	private String nombre_Canciones;
 	private String genero_Musica;
 	private String url_Cancion;
+	private String artista_Canciones;
 
 	public CancionBean() {
 	}
@@ -23,6 +24,7 @@ public class CancionBean implements Serializable {
 		canciones.setNombre_Canciones(this.nombre_Canciones);
 		canciones.setGenero_Musica(this.genero_Musica);
 		canciones.setUrl_Cancion(this.url_Cancion);
+		canciones.setArtista_Canciones(this.artista_Canciones);
 
 		int respuesta = 0;
 		try {
@@ -69,6 +71,18 @@ public class CancionBean implements Serializable {
 
 	public void setUrl_Cancion(String url_Cancion) {
 		this.url_Cancion = url_Cancion;
+	}
+
+	public String getArtista_Canciones() {
+		return artista_Canciones;
+	}
+
+	public void setArtista_Canciones(String artista_Canciones) {
+		this.artista_Canciones = artista_Canciones;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

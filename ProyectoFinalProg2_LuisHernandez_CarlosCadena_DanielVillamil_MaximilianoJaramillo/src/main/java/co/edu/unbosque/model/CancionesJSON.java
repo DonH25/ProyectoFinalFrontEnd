@@ -48,7 +48,7 @@ public class CancionesJSON {
 			cancion.setNombre_Canciones((innerObj.get("nombre_Canciones").toString()));
 			cancion.setGenero_Musica((innerObj.get("genero_Musica").toString()));
 			cancion.setUrl_Cancion((((innerObj.get("url_Cancion").toString()))));
-			;
+			cancion.setArtista_Canciones((((innerObj.get("artista_Canciones").toString()))));
 			lista.add(cancion);
 		}
 		return lista;
@@ -68,7 +68,8 @@ public class CancionesJSON {
 		http.setRequestProperty("Accept", "application/json");
 		http.setRequestProperty("Content-Type", "application/json");
 		String data = "{" + "\"nombre_Canciones\":\"" + canciones.getNombre_Canciones() + "\",\"url_Cancion\": \""
-				+ canciones.getUrl_Cancion() + "\",\"genero_Musica\": \"" + canciones.getGenero_Musica() + "\"}";
+				+ canciones.getUrl_Cancion() + "\",\"genero_Musica\": \"" + canciones.getGenero_Musica()
+				+ "\",\"artista_Canciones\": \"" + canciones.getArtista_Canciones() + "\"}";
 		byte[] out = data.getBytes(StandardCharsets.UTF_8);
 		OutputStream stream = http.getOutputStream();
 		stream.write(out);
