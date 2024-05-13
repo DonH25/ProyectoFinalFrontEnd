@@ -10,7 +10,7 @@
 body {
 	font-family: Arial, sans-serif;
 	background-image:
-		url(https://img.freepik.com/vector-gratis/fondo-pentagrama-musical-brillante-notas-sonido_1017-31220.jpg);
+		url(https://img.freepik.com/vector-gratis/fondos-negros-degradados-marcos-dorados_79603-2209.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	color: white;
@@ -18,12 +18,43 @@ body {
 	padding: 0;
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.menu {
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	/* Asegura que el menú aparezca por encima del resto del contenido */
+}
+
+.menu-item {
+	color: #c1b575;
+	text-decoration: none;
+	margin: 0 10px;
+}
+
+.menu-item:hover {
+	text-decoration: underline;
+}
+
+/* Estilo para el enlace del "Reproductor" cuando está activo */
+.menu-item.active {
+	text-decoration: underline;
 }
 
 .container {
 	display: flex;
 	width: 80%;
-	margin-top: 20px;
+	margin-top: 60px;
+	/* Ajusta el margen superior para dar espacio al menú fijo */
 }
 
 .left-column {
@@ -81,13 +112,11 @@ a:hover {
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 	text-align: center;
 	overflow-y: auto;
-	/* Scroll vertical si el contenido excede el tamaño */
-	max-height: 400px; /* Altura máxima del recuadro */
+	max-height: 400px;
 }
 
-/* Estilos para el listado de canciones dentro del recuadro */
 ul#cancionesList {
-	list-style: none; /* Quitar viñetas de la lista */
+	list-style: none;
 	padding: 0;
 }
 
@@ -101,19 +130,17 @@ ul#cancionesList li a {
 	display: block;
 	padding: 8px 0;
 	border-bottom: 1px solid #555;
-	/* Separador entre elementos de la lista */
 }
 
 ul#cancionesList li a:hover {
 	text-decoration: underline;
 }
 
-/* Ajustes adicionales */
 .container {
 	display: flex;
 	width: 80%;
 	margin-top: 20px;
-	justify-content: center; /* Centrar la estructura completa */
+	justify-content: center;
 }
 
 .right-column {
@@ -129,6 +156,11 @@ ul#cancionesList li a:hover {
 </style>
 </h:head>
 <h:body>
+	<div class="menu">
+		<a href="#" class="menu-item">Reproductor</a>
+		<h:link value="Crear Canción" outcome="canciones.xhtml"
+			class="menu-item" />
+	</div>
 	<div class="container">
 		<div class="left-column">
 			<h3>Listado de Canciones</h3>
@@ -138,7 +170,6 @@ ul#cancionesList li a:hover {
 						onclick="seleccionarCancion('#{cancion.url_Cancion}')">
 							#{cancion.nombre_Canciones} - #{cancion.artista_Canciones} </a></li>
 				</ui:repeat>
-
 			</ul>
 		</div>
 		<div class="right-column">
@@ -148,17 +179,14 @@ ul#cancionesList li a:hover {
 					<p:inputText id="audioUrl" styleClass="audio-url-input"
 						placeholder="Inserta el enlace MP3" />
 					<p:commandButton value="Reproducir" icon="pi pi-play"
-						styleClass="play-button" onclick="actualizarAudio()" />
+						styleClass="play-button play-button-gold"
+						onclick="actualizarAudio()" />
+
 				</div>
 				<div>
 					<audio id="reproductorAudio" controls="controls">
 						<source src="" type="audio/mp3" />
-						Tu navegador no soporta el elemento de audio. Por favor, usa un
-						navegador actualizado.
 					</audio>
-				</div>
-				<div style="margin-top: 20px;">
-					<p:button value="Ir a Canción" outcome="canciones.xhtml" />
 				</div>
 			</div>
 		</div>
@@ -173,18 +201,19 @@ ul#cancionesList li a:hover {
 			const audioUrl = document.getElementById('audioUrl').value;
 			const audioPlayer = document.getElementById('reproductorAudio');
 
-			// Verificar si se proporcionó una URL válida
 			if (audioUrl.trim() !== '') {
-				// Actualizar la fuente del audio
 				audioPlayer.src = audioUrl;
-				// Cargar y reproducir el nuevo audio
 				audioPlayer.load();
 				audioPlayer.play();
 			} else {
-				// Si no se proporciona una URL válida, detener la reproducción
 				audioPlayer.pause();
 			}
 		}
+		// Obtén el enlace del "Reproductor"
+		const reproductorLink = document.querySelector('.menu-item');
+
+		// Agrega la clase 'active' al enlace cuando estemos en la sección del reproductor
+		reproductorLink.classList.add('active');
 	</script>
 </h:body>
 </html>

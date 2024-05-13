@@ -10,7 +10,7 @@
 body {
 	font-family: Arial, sans-serif;
 	background-image:
-		url(https://img.freepik.com/vector-gratis/fondo-pentagrama-musical-brillante-notas-sonido_1017-31220.jpg);
+		url(https://e0.pxfuel.com/wallpapers/1004/415/desktop-wallpaper-music-music-banner.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	color: white;
@@ -22,9 +22,9 @@ body {
 	width: 400px;
 	margin: 50px auto;
 	padding: 20px;
-	border-radius: 5px;
-	background-color: rgba(0, 0, 0, 0.5);
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+	border-radius: 8px;
+	background-color: rgba(0, 0, 0, 0.7);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
 }
 
 .form-container h2 {
@@ -32,27 +32,24 @@ body {
 	margin-bottom: 20px;
 }
 
-.form-table {
-	width: 100%;
-}
-
 .custom-button {
 	width: 100%;
-	padding: 10px;
+	padding: 12px;
 	border: none;
 	border-radius: 4px;
-	background-color: black;
-	color: #c1b575;
+	background-color: #4CAF50;
+	color: white;
 	cursor: pointer;
 	transition: background-color 0.3s;
 	margin-top: 20px;
 }
 
 .custom-button:hover {
-	background-color: #333;
+	background-color: #45a049;
 }
 </style>
 </h:head>
+
 <h:body>
 	<div class="form-container">
 		<h2>Formulario de Emisora</h2>
@@ -61,12 +58,14 @@ body {
 				<tr>
 					<td><h:outputLabel for="nombre" value="Nombre de la Emisora:" /></td>
 					<td><p:inputText id="nombre" value="#{emisoraBean.nombre}"
-							placeholder="Nombre de la Emisora" required="true" /></td>
+							placeholder="Nombre de la Emisora" required="true"
+							styleClass="input-field" /></td>
 				</tr>
 				<tr>
 					<td><h:outputLabel for="tipoEmisora" value="Tipo de Emisora:" /></td>
 					<td><p:selectOneRadio id="tipoEmisora"
-							value="#{emisoraBean.tipoEmisora}" layout="lineDirection">
+							value="#{emisoraBean.tipoEmisora}" layout="lineDirection"
+							required="true">
 							<f:selectItem itemLabel="AM" itemValue="AM" />
 							<f:selectItem itemLabel="FM" itemValue="FM" />
 							<f:selectItem itemLabel="Streaming" itemValue="Streaming" />
@@ -74,15 +73,14 @@ body {
 				</tr>
 				<tr>
 					<td><h:outputLabel for="tipoMusica" value="Tipo de Música:" /></td>
-					<td><p:selectOneMenu id="tipoMusica"
+					<td><p:selectOneButton id="tipoMusica"
 							value="#{emisoraBean.tipoMusica}" required="true">
-							<f:selectItem itemLabel="Seleccionar Tipo de Música" itemValue="" />
 							<f:selectItem itemLabel="Rock" itemValue="Rock" />
 							<f:selectItem itemLabel="Pop" itemValue="Pop" />
 							<f:selectItem itemLabel="Jazz" itemValue="Jazz" />
 							<f:selectItem itemLabel="Electrónica" itemValue="Electrónica" />
 							<f:selectItem itemLabel="Clásica" itemValue="Clásica" />
-						</p:selectOneMenu></td>
+						</p:selectOneButton></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><p:commandButton value="Enviar"

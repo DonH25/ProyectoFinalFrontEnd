@@ -28,7 +28,7 @@ public class EmisoraBean implements Serializable {
 		try {
 			respuesta = EmisorasJSON.postJSON(emisora);
 			if (respuesta == 200) {
-				return "canciones?faces-redirect=true";
+				return "reproductor?faces-redirect=true";
 			} else {
 				return "error";
 			}
